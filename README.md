@@ -55,6 +55,32 @@ You should remove all Create User permissions. This ensures that users cannot be
 6. Graphcool returns a valid token for the user
 7. Your app stores the token and uses this for all further requests to Graphcool
 
+## Merging accounts
+
+> note: this is not supported yet
+
+This package supports merging users created with different Auth Providers as long as the email mataches.
+
+Here is a typical example:
+
+1. A user signs up with the email/password based simple-auth-provider
+2. The user verifies her email
+3. At some later point the user signs in using Facebook
+
+At this point `facebook-auth-provider` will try to merge the two accounts. Merging succeeds if:
+
+ - The users primary email in Facebook matches the email stored in Graphcool
+ - The user in Graphcool has verified the email.
+ 
+Account merging is supported by all official Authentication Providers:
+
+ - `facebook-auth-provider`
+ - `google-auth-provider`
+ - `simple-auth-provider`
+ - `auth0-auth-provider`
+
+Merging accounts with different emails is currently not supported
+
 ## Resources
 
 See the official facebook documentation https://developers.facebook.com/docs/facebook-login
