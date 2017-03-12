@@ -1,0 +1,30 @@
+{
+  "name": "facebook-auth-provider",
+  "version": "1.0.0",
+  "description": "## Features",
+  "main": "functions/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "es6-promise": "^4.1.0",
+    "isomorphic-fetch": "^2.2.1",
+    "lokka": "^1.7.0",
+    "lokka-transport-http": "^1.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node functions/authenticateFacebookUser/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graphcool/facebook-auth-provider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/graphcool/facebook-auth-provider/issues"
+  },
+  "homepage": "https://github.com/graphcool/facebook-auth-provider#readme"
+}

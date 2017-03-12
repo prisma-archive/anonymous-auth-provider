@@ -1,0 +1,7 @@
+type Mutation {
+  authenticateFacebookUser(fbToken: String!): FacebookAuthProvider_authenticateFacebookUserPayload
+}
+
+type FacebookAuthProvider_authenticateFacebookUserPayload {
+  token: string!
+}

@@ -1,3 +1,15 @@
+# Graphcool developer notes
+
+install serverless cli. Copy .envrc from 1pw.
+
+Deploy with
+
+```
+serverless deploy
+```
+
+Url: `https://cmwww7ara1.execute-api.eu-west-1.amazonaws.com/dev/facebook-auth-provider/authenticateFacebookUser`
+
 # facebook-auth-provider
 
 ## Features
@@ -26,6 +38,8 @@ type authenticateFacebookUserPayload {
 ### Create a Facebook App
 
 To use Facebook Login you need to create a facebook app. Follow this guide to create an app in a few minutes https://developers.facebook.com/docs/apps/register
+
+> note: in order to test your web app locally you will need to include `localhost` in your App Domains and set the Site Url to something that includes localhost, for example `http://localhost:8000`
 
 ### Add the email permission
 

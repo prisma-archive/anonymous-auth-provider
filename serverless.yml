@@ -1,0 +1,13 @@
+service: package-facebook-auth-provider # NOTE: update this with your service name
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: eu-west-1
+functions:
+  authenticateFacebookUser:
+    handler: functions/authenticateFacebookUser.lambda
+    events:
+      - http:
+          path: facebook-auth-provider/authenticateFacebookUser
+          method: post

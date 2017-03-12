@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+lib
+.lib
+dist
+.idea
+.envrc
+*.log
