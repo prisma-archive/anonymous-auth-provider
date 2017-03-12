@@ -6,9 +6,34 @@ Deploy with
 
 ```
 serverless deploy
+
+Or just the function (faster):
+
+serverless deploy function --function authenticateFacebookUser
 ```
 
 Url: `https://cmwww7ara1.execute-api.eu-west-1.amazonaws.com/dev/facebook-auth-provider/authenticateFacebookUser`
+
+body:
+
+```
+{
+	"context": {
+		"graphcool": {
+          "projectId": "cj05j5mg3069w0184tvl9emf5",
+			"systemUrl": "https://api.graph.cool/system",
+			"simpleUrl": "https://api.graph.cool/simple/v1/cj05j5mg3069w0184tvl9emf5",
+			"pat": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0ODkyNTM2NTAsImNsaWVudElkIjoiY2lubThhOHJuMDAwMmZpcWNvMDJkMWNlOSIsInByb2plY3RJZCI6ImNqMDVqNW1nMzA2OXcwMTg0dHZsOWVtZjUiLCJwZXJtYW5lbnRBdXRoVG9rZW5JZCI6ImNqMDVqNjZ6ajA2cXUwMTQ0aWV4a3p3cHUifQ.yOp0dcekPB-pG4hRM6mTBBpSKV3Ppq-6of4UvITetKE"
+		},
+		"package": {
+			"modelName": "User"
+		}
+	},
+	"input": {
+		"fbToken": "EAADrUoRnyTkBAGR2vcYearsiSq5JZA5cvqt8Ls2Ym4i9ZAZBzV7AkQVRu8ZCBJUWdSuDvnlXn0XKcfpPK9etFQnZC5qc4ZB8H8nMEDhGfIARhHLvOL2aI8nlRK0h4CbH1eYYtGidhQt4BBEQ1wZC42H4tZBbpdwvCbav6idPJH6iKyJXDITPbXV2"
+	}
+}
+```
 
 # facebook-auth-provider
 

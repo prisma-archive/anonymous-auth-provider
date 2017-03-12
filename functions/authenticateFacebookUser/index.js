@@ -4,26 +4,6 @@ const System = require('./system')
 const Simple = require('./simple')
 const Facebook = require('./facebook')
 
-// MOCK DATA
-
-const context = {
-	graphcool: {
-		systemUrl: "https://api.graph.cool/system",
-		simpleUrl: "https://api.graph.cool/simple/v1/cj05j5mg3069w0184tvl9emf5",
-		pat: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0ODkyNTM2NTAsImNsaWVudElkIjoiY2lubThhOHJuMDAwMmZpcWNvMDJkMWNlOSIsInByb2plY3RJZCI6ImNqMDVqNW1nMzA2OXcwMTg0dHZsOWVtZjUiLCJwZXJtYW5lbnRBdXRoVG9rZW5JZCI6ImNqMDVqNjZ6ajA2cXUwMTQ0aWV4a3p3cHUifQ.yOp0dcekPB-pG4hRM6mTBBpSKV3Ppq-6of4UvITetKE",
-		projectId: "cj05j5mg3069w0184tvl9emf5"
-	},
-	package: {
-		modelName: "User"
-	}
-}
-
-const input = {
-	fbToken: "EAADrUoRnyTkBADEJxWptYxc2KgWggYMYyNc9Leyis7abdWCH0XjSTjnBevppdxvx6WaSrLoLe82ainHXEcR8V9TWkOD6GBRJWS8NYZCLZCnqDh6I20sWBEUprhQp5MVNnw9TpTyJ56T6w9s3woy4bmOaPIodMZCDhrDPlBmBuyiZBS2SW9MD"
-}
-
-// FUNCTIONALITY
-
 function handler(input, context) {
 	console.log("start handler")
 
@@ -95,13 +75,14 @@ function mapResponse(body) {
     }
 }
 
-// LAMBDA HANDLER
-
 module.exports.lambda = function(event, lambdaContext, callback) {
 
-	console.log(event)
-	console.log(lambdaContext)
+	const body = JSON.parse(event.body)
+	const input = body.input
+	const context = body.context
 
+	console.log(input)
+	console.log(context)
 
 	return handler(input, context)
 	.then(res => {
