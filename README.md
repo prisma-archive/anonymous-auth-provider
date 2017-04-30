@@ -9,10 +9,10 @@ serverless deploy
 
 Or just the function (faster):
 
-serverless deploy function --function authenticateFacebookUser
+serverless deploy function --function authenticateAnonymousUser
 ```
 
-Url: `https://cmwww7ara1.execute-api.eu-west-1.amazonaws.com/dev/facebook-auth-provider/authenticateFacebookUser`
+Url: `https://162yijip11.execute-api.eu-west-1.amazonaws.com/dev/anonymous-auth-provider/authenticateAnonymousUser`
 
 body:
 
@@ -23,27 +23,29 @@ body:
           "projectId": "cj05j5mg3069w0184tvl9emf5",
 			"systemUrl": "https://api.graph.cool/system",
 			"simpleUrl": "https://api.graph.cool/simple/v1/cj05j5mg3069w0184tvl9emf5",
-			"pat": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0ODkyNTM2NTAsImNsaWVudElkIjoiY2lubThhOHJuMDAwMmZpcWNvMDJkMWNlOSIsInByb2plY3RJZCI6ImNqMDVqNW1nMzA2OXcwMTg0dHZsOWVtZjUiLCJwZXJtYW5lbnRBdXRoVG9rZW5JZCI6ImNqMDVqNjZ6ajA2cXUwMTQ0aWV4a3p3cHUifQ.yOp0dcekPB-pG4hRM6mTBBpSKV3Ppq-6of4UvITetKE"
+			"pat": "some-pat-for-project"
 		},
 		"package": {
-			"modelName": "User"
+			"typeName": "User"
 		}
 	},
 	"input": {
-		"fbToken": "EAADrUoRnyTkBAGR2vcYearsiSq5JZA5cvqt8Ls2Ym4i9ZAZBzV7AkQVRu8ZCBJUWdSuDvnlXn0XKcfpPK9etFQnZC5qc4ZB8H8nMEDhGfIARhHLvOL2aI8nlRK0h4CbH1eYYtGidhQt4BBEQ1wZC42H4tZBbpdwvCbav6idPJH6iKyJXDITPbXV2"
+		"secret": "some-secret"
 	}
 }
 ```
 
-# facebook-auth-provider
+# anonymous-auth-provider
 
 ## Features
+
+ > note that `User` below is replaced with the typeName provided when configuring this package
 
 ### Interfaces
 
 ```graphql
-interface FacebookUser {
-  facebookUserId: String
+interface AnonymousUser {
+  secret: String
   isVerified: Boolean!
 }
 ```
@@ -51,28 +53,24 @@ interface FacebookUser {
 ### Mutations
 
 ```graphql
-authenticateFacebookUser(fbToken: String!): authenticateFacebookUserPayload
+authenticateAnonymousUser(secret: String!): authenticateAnonymousUserPayload
 
-type authenticateFacebookUserPayload {
+type authenticateAnonymousUserPayload {
   token: String!
 }
 ```
 
 ## Installation
 
-### Create a Facebook App
-
-To use Facebook Login you need to create a facebook app. Follow this guide to create an app in a few minutes https://developers.facebook.com/docs/apps/register
-
-> note: in order to test your web app locally you will need to include `localhost` in your App Domains and set the Site Url to something that includes localhost, for example `http://localhost:8000`
-
-### Add the email permission
-
-See https://developers.facebook.com/docs/facebook-login/permissions/#adding
-
-By default you have access to the `public_profile` permission that includes information about the user such as name, age range and location. For this package to function properly you need to additionally ask for the `email` permission.
-
 ### Setup in Graphcool
+
+Perform the following mutation in the system api
+
+```graphql
+mutation {
+	installPackageV1()
+}
+```
 
 dm @sorenbs in slack to have this activated. Include the following meta information:
 

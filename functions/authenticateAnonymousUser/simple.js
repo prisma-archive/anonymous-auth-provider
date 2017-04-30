@@ -8,7 +8,9 @@ class Simple {
     this.pat = pat;
 
     this.client = new Lokka({
-      transport: new Transport(url)
+      transport: new Transport(url, {
+        headers: {Authorization: `Bearer ${pat}`},
+      })
     });
   }
 }

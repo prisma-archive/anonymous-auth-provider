@@ -1,5 +1,5 @@
 {
-  "name": "facebook-auth-provider",
+  "name": "anonymous-auth-provider",
   "version": "1.0.0",
   "description": "## Features",
   "main": "functions/index.js",

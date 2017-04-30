@@ -1,13 +1,13 @@
-service: package-facebook-auth-provider # NOTE: update this with your service name
+service: package-anonymous-auth-provider
 provider:
   name: aws
-  runtime: nodejs4.3
+  runtime: nodejs6.10
   stage: dev
   region: eu-west-1
 functions:
-  authenticateFacebookUser:
-    handler: functions/authenticateFacebookUser.lambda
+  authenticateAnonymousUser:
+    handler: functions/authenticateAnonymousUser.lambda
     events:
       - http:
-          path: facebook-auth-provider/authenticateFacebookUser
+          path: anonymous-auth-provider/authenticateAnonymousUser
           method: post
