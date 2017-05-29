@@ -52,7 +52,7 @@ function handler(input, context) {
 		).then((token) => {
 			console.log("graphcool token: " + token)
 
-			return token
+			return {token: token, id: graphcoolId}
 		})
 	})
 
@@ -79,7 +79,8 @@ module.exports.lambda = function(event, lambdaContext, callback) {
 		return handler(input, context)
 		.then(res => {
 			console.log("result:" + res)
-			callback(null, mapResponse({token: res}))
+			console.log(res)
+			callback(null, mapResponse(res))
 		})
 		.catch(err => {
 			console.log("error: " + err)
