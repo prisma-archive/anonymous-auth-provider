@@ -60,6 +60,7 @@ function handler(input, context) {
 }
 
 function mapResponse(body) {
+	body.data = JSON.parse(JSON.stringify(body))
 	return {
       statusCode: 200,
       body: JSON.stringify(body)
