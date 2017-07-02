@@ -70,7 +70,7 @@ function mapResponse(body) {
 module.exports.lambda = function(event, lambdaContext, callback) {
 
 	const body = JSON.parse(event.body)
-	const input = body.input
+	const input = body.input || body.data
 	const context = body.context
 
 	console.log(input)
