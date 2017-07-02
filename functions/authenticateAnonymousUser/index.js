@@ -6,8 +6,8 @@ const Simple = require('./simple')
 function handler(input, context) {
 	console.log("start handler")
 
-	const system = new System(context.graphcool.systemUrl, context.graphcool.pat)
-	const simple = new Simple(context.graphcool.simpleUrl, context.graphcool.pat)
+	const system = new System("https://api.graph.cool/system", context.graphcool.pat)
+	const simple = new Simple("https://api.graph.cool/simple/v1/" + context.graphcool.projectId, context.graphcool.pat)
 
 	const typeName = context.package.onType
 
