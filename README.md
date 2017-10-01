@@ -1,5 +1,7 @@
 # Graphcool developer notes
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/graphcool/anonymous-auth-provider.svg?token=b14296f344ae05fa962198fb7ece38b5fdd6d6388ff9769c4017a817c28fa2cc&ts=1506884285735)](https://greenkeeper.io/)
+
 install serverless cli. Copy .envrc from 1pw.
 
 Deploy with
